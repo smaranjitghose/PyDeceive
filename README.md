@@ -1,5 +1,16 @@
-# PyDeceive
-A simple script to deceive others by making you insvisible
+# PyDeceive 
+
+Ever heard about the **cloak of invisibility**?
+
+If you are a potterhead, you can definitely recollect how Harry used it to deceive others in times of need.
+
+Have'nt you ever wanted to have one for yourself!. 
+
+But Harry went Hogwards,right?. And you don't know how to reach there!.
+
+Don't worry I have your back and from the land of Python, I give you this magic spell!..
+
+**Abrakadabra**
 
 # Lets understand this
 
