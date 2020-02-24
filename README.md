@@ -1,6 +1,6 @@
-# PyDeceive 
+# PyDeceive 🧙‍♂️ 
 
-Ever heard about the **cloak of invisibility**?
+Ever heard about the **cloak of invisibility**? ✴
 
 If you are a potterhead, you can definitely recollect how Harry used it to deceive others in times of need.
 
@@ -10,15 +10,15 @@ But Harry went Hogwards,right?. And you don't know how to reach there!.
 
 Don't worry I have your back and from the land of Python, I give you this magic spell!..
 
-**Abrakadabra**
+**Abrakadabra** 
 
-# Requirements:
+# Requirements (Ingrediants for the spell): 📃
 
 - python3 or Anaconda should be installed
 - opencv2 should be installed
 - numpy should be installed
 
-# So wizard,here your's spell:
+# So wizard,here your's spell: 💥💥
 
 - Download the pydeceive.py file from this repo
 - Open the terminal and go the directory where it's saved
@@ -28,11 +28,11 @@ Don't worry I have your back and from the land of Python, I give you this magic 
 - Now come back with your magic cloak[default:red] and see the magic happen
 - When you are done playing press ```Esc``` to quit and the clip would be saved in the same directory
 
-# Wondering how the spell works?...Lets break it down
+# Wondering how the spell works?...Lets break it down 🔍
 
 ## Firstly lets understand how to access our camera:
 
-#### Recording a video
+#### Recording a video 🎥
 ```python
 import cv2
 
@@ -86,7 +86,7 @@ cv2.destroyAllWindows()
 if not cap.isOpened():
     raise IOError("Cannot open webcam")
 ```
-#### Saving a video
+#### Saving a video 🗃
 
 We create a VideoWriter object with following parameters for this:
 - First we specify the output file name (eg: output.avi). 
@@ -102,9 +102,9 @@ fourcc = cv2.VideoWriter_fourcc(*'XVID')
 out = cv2.VideoWriter('wizard_smaran.avi' , fourcc, 20.0, (640,480))
 ```
    
-## Now coming to our magic spell
+## Now coming to our magic spell  ♨
 
-#### Extracting our background
+#### Extracting our background 🖼
 - We will replace the current frame pixels corresponding to the cloth with the background pixels to generate the effect of an invisibility cloak. For this we need to store the frame of a static background
 ```python
 background = 0
@@ -116,7 +116,7 @@ for i in range(30):
 - Thus capturing multiple images of static background with a for loop is more preferrble
 - Averaging over multiple frames also reduces noise
 
-#### Detecting the our magical cloak
+#### Detecting the our magical cloak 👕
 - By default we are using a red color cloak for our magic trick 
 - For an RGB (Red-Green-Blue) image we can simply threshold the R channel and get our mask. 
 - However this is not effective since the RGB values are highly sensitive to illumination. 
@@ -127,7 +127,7 @@ for i in range(30):
     hsv=cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
  ```
 
-- **Wait!..Now what is HSV?**
+- **Wait!..Now what is HSV?** 🤔🤔
 
 | Channel | What it means |
 | ------- | ----------------------------------------------------------------------------------- |
@@ -158,7 +158,7 @@ Unlike RGB which is defined in relation to primary colors, HSV is defined in a w
 ```python
     mask1 = mask1 + mask2 
  ```
-### Segmenting out our magic cloak and making us invisible
+### Segmenting out our magic cloak ✂ and making us invisible  😎😎
 
 The pixel values of the detected red color region are replaced with corresponding pixel values of the static background and an augmented output is generated which creates the magical effect. We use bitwise_and operation first to create an image with pixel values, corresponding to the detected region, equal to the pixel values of the static background and then add the output to the image  from which we had segmented out the red cloak
 
@@ -182,12 +182,12 @@ The pixel values of the detected red color region are replaced with correspondin
  final_output = cv2.addWeighted(layer1 , 1, layer2 , 1, 0)
  ```
  
- # Further Tasks:
+ # Further Tasks: 🏗
  - Have a script to effectively find out HSV color value of any cloak we want to use
  - Try this trick with other colors
  - Create an GUI for this where you can input the color of your cloak and your spell is made!
  
- # License
+ # License ⚙
  
  [MIT License](https://github.com/smaranjitghose/PyDeceive/blob/master/LICENSE)
  
