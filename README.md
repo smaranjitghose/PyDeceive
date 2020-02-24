@@ -12,8 +12,6 @@ Don't worry I have your back and from the land of Python, I give you this magic 
 
 **Abrakadabra**
 
-# Lets understand this
-
 # Requirements:
 
 - python3 or Anaconda should be installed
@@ -29,6 +27,8 @@ Don't worry I have your back and from the land of Python, I give you this magic 
 - Please don't stay in front of the camera for some time
 - Now come back with your magic cloak[default:red] and see the magic happen
 - When you are done playing press ```Esc``` to quit and the clip would be saved in the same directory
+
+# Wondering how the spell works?...Lets break it down
 
 ## Firstly lets understand how to access our camera:
 
