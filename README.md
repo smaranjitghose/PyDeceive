@@ -183,7 +183,9 @@ The pixel values of the detected red color region are replaced with correspondin
  ```
  
  # Further Tasks: 🏗
+ - Make sure that the videos are stored in .mp4 format or get converted once stored
  - Have a script to effectively find out HSV color value of any cloak we want to use
+ - Modify the fcc for Linux and Mac
  - Try this trick with other colors
  - Create an GUI for this where you can input the color of your cloak and your spell is made!
  
