@@ -155,4 +155,13 @@ The pixel values of the detected red color region are replaced with correspondin
  final_output = cv2.addWeighted(layer1 , 1, layer2 , 1, 0)
  ```
  
- # From Smaranjit Ghose
+ # Further Tasks:
+ - Have a script to effectively find out HSV color value of any cloak we want to use
+ - Try this trick with other colors
+ - Create an GUI for this where you can input the color of your cloak and your spell is made!
+ 
+ # License
+ 
+ [MIT License](https://github.com/smaranjitghose/PyDeceive/blob/master/LICENSE)
+ 
+ # Crafted with ❤️ by [Smaranjit Ghose](https://github.com/smaranjitghose)
