@@ -3,8 +3,9 @@ A simple script to deceive others by making you insvisible
 
 # Lets understand this
 
-### Firstly lets understand how to record video from a camera:
+## Firstly lets understand how to access our camera:
 
+#### Recording a video
 ```python
 import cv2
 
@@ -58,7 +59,7 @@ cv2.destroyAllWindows()
 if not cap.isOpened():
     raise IOError("Cannot open webcam")
 ```
-### Saving a video
+#### Saving a video
 
 We create a VideoWriter object with following parameters for this:
 - First we specify the output file name (eg: output.avi). 
@@ -71,6 +72,44 @@ We create a VideoWriter object with following parameters for this:
 
 ```python
 fourcc = cv2.VideoWriter_fourcc(*'XVID')
-out = cv2.VideoWriter('output.avi',fourcc, 20.0, (640,480))
+out = cv2.VideoWriter('wizard_smaran.avi' , fourcc, 20.0, (640,480))
 ```
-    
+   
+## Now coming to our magic spell
+
+#### Extracting our background
+- We will replace the current frame pixels corresponding to the cloth with the background pixels to generate the effect of an invisibility cloak. For this we need to store the frame of a static background
+```python
+background = 0
+for i in range(30):
+    ret, background = cap.read()
+```
+- As the background is static we could have used a single capture. 
+- However at times the image captured is a bit dark compared to when multiple frames are captured. 
+- Thus capturing multiple images of static background with a for loop is more preferrble
+- Averaging over multiple frames also reduces noise
+
+#### Detecting the color of our magical cloak
+
+- By default we are using a red color cloak for our magic trick 
+- For an RGB (Red-Green-Blue) image we can simply threshold the R channel and get our mask. 
+- However this is not effective since the RGB values are highly sensitive to illumination. 
+- Although our cloak would be of red color,there might be certain parts where, due-to shadow, Red channel values of the corresponding pixels are quite low and we could be exposed!
+- Thus we transform the color space of our image from RGB to HSV (Hue – Saturation – Value)
+
+```python
+    hsv=cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+ ```
+
+- **Wait!..Now what is HSV?**
+
+| Channel | What it means |
+| ------- | ----------------------------------------------------------------------------------- |
+| Hue(H) | This channel encodes color information, expressed as a number from 0 to 360 degrees |
+| Saturation(S) |This channel encodes the intensity/purity of color. For example, pink is less saturated than red.It basically describes the amount of grey in a particular colour, from 0 to 100 percent. Reducing this component toward zero introduces more grey and produces a faded effect|
+| Value(V) | This channel encodes the brightness or intensity of the colour,from 0–100 percent, where 0 is completely black, and 100 is the brightest and reveals the most colour. Shading and gloss components of an image appear in this channel. |
+
+Unlike RGB which is defined in relation to primary colors, HSV is defined in a way that is similar to how humans perceive color.
+
+
+
