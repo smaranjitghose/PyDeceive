@@ -14,6 +14,22 @@ Don't worry I have your back and from the land of Python, I give you this magic 
 
 # Lets understand this
 
+# Requirements:
+
+- python3 or Anaconda should be installed
+- opencv2 should be installed
+- numpy should be installed
+
+# So wizard,here your's spell:
+
+- Download the pydeceive.py file from this repo
+- Open the terminal and go the directory where it's saved
+- Enter the command ```python pydeceive.py```
+- Your webcam will turn on in a few seconds
+- Please don't stay in front of the camera for some time
+- Now come back with your magic cloak[default:red] and see the magic happen
+- When you are done playing press ```Esc``` to quit and the clip would be saved in the same directory
+
 ## Firstly lets understand how to access our camera:
 
 #### Recording a video
