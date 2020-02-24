@@ -42,7 +42,7 @@ while True:
     ret, frame = cap.read()
  ```
 
--Here, ret is a Boolean value returned by the read function, and it indicates whether or not the frame was captured successfully. If the frame is captured correctly, it's stored in the variable frame
+- Here, ret is a Boolean value returned by the read function, and it indicates whether or not the frame was captured successfully. If the frame is captured correctly, it's stored in the variable frame
 
 - As we know, the ASCII value of Esc is 27. Once we encounter it, we break the loop and release the video capture object. The line cap.release() is important because it gracefully closes the webcam
 
@@ -58,3 +58,19 @@ cv2.destroyAllWindows()
 if not cap.isOpened():
     raise IOError("Cannot open webcam")
 ```
+### Saving a video
+
+We create a VideoWriter object with following parameters for this:
+- First we specify the output file name (eg: output.avi). 
+- Second we specify the FourCC code.
+                - FourCC is a 4-byte code used to specify the video codec.
+                - The list of available codes can be found in [fourcc.org](http://www.fourcc.org/codecs.php).
+                - It is platform dependent
+- Third we specify the number of frames per second (fps) and frame size should be passed. 
+- Lastly we specify the isColor flag. If it is True, encoder expect color frame, otherwise it works with grayscale frame
+
+```python
+fourcc = cv2.VideoWriter_fourcc(*'XVID')
+out = cv2.VideoWriter('output.avi',fourcc, 20.0, (640,480))
+```
+    
