@@ -89,8 +89,7 @@ for i in range(30):
 - Thus capturing multiple images of static background with a for loop is more preferrble
 - Averaging over multiple frames also reduces noise
 
-#### Detecting the color of our magical cloak
-
+#### Detecting the our magical cloak
 - By default we are using a red color cloak for our magic trick 
 - For an RGB (Red-Green-Blue) image we can simply threshold the R channel and get our mask. 
 - However this is not effective since the RGB values are highly sensitive to illumination. 
@@ -111,5 +110,49 @@ for i in range(30):
 
 Unlike RGB which is defined in relation to primary colors, HSV is defined in a way that is similar to how humans perceive color.
 
+- The Hue values are actually distributed over a circle (range between 0-360 degrees) but in OpenCV to fit into 8bit value the range is from 0-180. The red color is represented by 0-30 as well as 150-180 values.
 
+- We use the range 0-10 and 170-180 to avoid detection of skin as red. For the saturation(S) values a high range of 120-255 is used because as our cloak would be of highly saturated red color. For the value parameter(V),the lower rangeis 70 so that we can detect red color in the wrinkles of the cloth as well
+```python
+    
+    # Forming mask 1 for red range_1
+    lower_red = np.array([0,120,70])
+    upper_red = np.array([10,255,255])
+    mask1 = cv2.inRange(hsv, lower_red, upper_red)
+ 
+    # Forming mask 2 for red range_2
+    lower_red = np.array([170,120,70])
+    upper_red = np.array([180,255,255])
+    mask2 = cv2.inRange(hsv,lower_red,upper_red)
+  ```
 
+- Now we combine masks generated for both the red color ranges by doing an pixel-wise OR operation 
+
+```python
+    mask1 = mask1 + mask2 
+ ```
+### Segmenting out our magic cloak and making us invisible
+
+The pixel values of the detected red color region are replaced with corresponding pixel values of the static background and an augmented output is generated which creates the magical effect. We use bitwise_and operation first to create an image with pixel values, corresponding to the detected region, equal to the pixel values of the static background and then add the output to the image  from which we had segmented out the red cloak
+
+- Creating an inverted mask to segment out the cloak from the frame
+```python
+    mask2 = cv2.bitwise_not(mask1)
+ ```
+ 
+ - Segmenting the cloak out of the frame using ```bitwise_and``` and with the inverted mask
+ ```python
+    layer1 = cv2.bitwise_and(background, background, mask=mask1)
+ ```
+ -  Creating an image showing static background frame pixels only for the masked region
+  ```python
+    layer2 = cv2.bitwise_and(img, img, mask=mask2)
+ ```
+ 
+ - Finally combining the layers to make us invisible
+ 
+ ```python
+ final_output = cv2.addWeighted(layer1 , 1, layer2 , 1, 0)
+ ```
+ 
+ # From Smaranjit Ghose
