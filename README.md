@@ -46,8 +46,8 @@ while True:
     frame = cv2.resize(frame, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA)
     cv2.imshow('Input', frame)
 
-    c = cv2.waitKey(1)
-    if c == 27:
+    k = cv2.waitKey(1)
+    if k == 27:
         break
 
 cap.release()
@@ -75,7 +75,7 @@ while True:
 - As we know, the ASCII value of Esc is 27. Once we encounter it, we break the loop and release the video capture object. The line cap.release() is important because it gracefully closes the webcam
 
 ```python    
-        if c == 27:
+        if k == 27:
              break
 
 cap.release()
