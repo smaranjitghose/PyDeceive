@@ -1,6 +1,6 @@
 # PyDeceive 🧙‍♂️ 
 
-![](https://forthebadge.com/images/badges/made-with-python.svg)
+![License](https://img.shields.io/github/license/smaranjitghose/PyDeceive?style=for-the-badge)
 
 Ever heard about the **cloak of invisibility**? ✴
 
@@ -31,6 +31,7 @@ Don't worry I have your back and from the land of Python, I give you this magic 
 - When you are done playing press ```Esc``` to quit and the clip would be saved in the same directory
 
 # Wondering how the spell works?...Lets break it down 🔍
+![](https://forthebadge.com/images/badges/made-with-python.svg)
 
 ## Firstly lets understand how to access our camera:
 
