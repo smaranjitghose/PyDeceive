@@ -1,5 +1,7 @@
 # PyDeceive 🧙‍♂️ 
 
+![](https://forthebadge.com/images/badges/made-with-python.svg)
+
 Ever heard about the **cloak of invisibility**? ✴
 
 If you are a potterhead, you can definitely recollect how Harry used it to deceive others in times of need.
@@ -194,3 +196,5 @@ The pixel values of the detected red color region are replaced with correspondin
  [MIT License](https://github.com/smaranjitghose/PyDeceive/blob/master/LICENSE)
  
  # Crafted with ❤️ by [Smaranjit Ghose](https://github.com/smaranjitghose)
+ 
+ 
