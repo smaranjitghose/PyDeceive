@@ -1,6 +1,8 @@
 # PyDeceive 🧙‍♂️ 
 
 ![License](https://img.shields.io/github/license/smaranjitghose/PyDeceive?style=for-the-badge)
+[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source-175x29.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
+
 
 Ever heard about the **cloak of invisibility**? ✴
 
@@ -189,7 +191,7 @@ The pixel values of the detected red color region are replaced with correspondin
  - Make sure that the videos are stored in .mp4 format or get converted once stored
  - Have a script to effectively find out HSV color value of any cloak we want to use
  - Modify the fcc for Linux and Mac
- - Try this trick with other colors
+ - Try this trick with other colors[black,blue,green,purple,orange,yellow]
  - Create an GUI for this where you can input the color of your cloak and your spell is made!
  
  # License ⚙
